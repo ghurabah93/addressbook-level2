@@ -16,6 +16,8 @@ public class Person implements ReadOnlyPerson {
     private Address address;
 
     private final UniqueTagList tags;
+    
+    private static final String PRINT_NEWLINE = "\n";
     /**
      * Assumption: Every field must be present and not null.
      */
@@ -82,6 +84,18 @@ public class Person implements ReadOnlyPerson {
     @Override
     public String toString() {
         return getAsTextShowAll();
+    }
+    
+    /**
+     * Returns a concatenated version of the printable strings of each object.
+     */
+    public String getPrintableString(Printable... printables) {
+        String printableStr = "";
+        for (Printable printableItems : printables) {
+            printableStr += printableItems.getPrintableString() + PRINT_NEWLINE;
+        }
+        return printableStr;
+        
     }
 
 }
